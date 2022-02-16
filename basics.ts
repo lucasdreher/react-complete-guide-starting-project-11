@@ -60,3 +60,18 @@ function add(a: number, b: number) {
 function print(value: any) {
 	console.log(value);
 }
+
+// Generics
+
+function insertAtBeginning<T>(array: T[], value: T) {
+	const newArray = [ value, ...array ];
+	return newArray;
+}
+
+const demoArray = [ 1, 2, 3 ];
+
+const updatedArray = insertAtBeginning(demoArray, -1);
+// updatedArray[0].split(''); // Get error, 'split' does not exists on type 'number'
+
+const stringArray = insertAtBeginning([ 'a', 'b', 'c' ], 'd');
+stringArray[0].split('');
